@@ -97,16 +97,7 @@ ConfusionMatrixDisplay.from_predictions(y_test, pred, display_labels=["Non-Sever
 plt.title("Confusion Matrix")
 plt.show()
 
-# ===== 12) ROC-AUC + ROC CURVE (GUI) =====
-auc = roc_auc_score(y_test, prob)
-print("ROC-AUC:", auc)
 
-RocCurveDisplay.from_predictions(y_test, prob, name=f"XGBoost (AUC={auc:.3f})")
-plt.plot([0, 1], [0, 1], linestyle="--")
-plt.title("ROC Curve (Severe vs Non-Severe)")
-plt.xlabel("False Positive Rate")
-plt.ylabel("True Positive Rate")
-plt.show()
 
 # ===== 13) FEATURE IMPORTANCE MAP (TOP 20) =====
 prep = clf.named_steps["prep"]
@@ -131,3 +122,4 @@ plt.title("Top 20 Feature Importances (XGBoost)")
 plt.xlabel("Importance")
 plt.tight_layout()
 plt.show()
+
